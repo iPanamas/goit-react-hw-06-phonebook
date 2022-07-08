@@ -1,12 +1,11 @@
+import contactsReducer from './contact/contactSlice';
+
 // Redux-store-configure
 import { configureStore } from '@reduxjs/toolkit';
 
 // Redux-persist
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
-// Contact-reducer
-import contactsReducer from './contact/contactReducer';
 
 // Redux-logger
 import logger from 'redux-logger';
@@ -23,7 +22,6 @@ const store = configureStore({
   reducer: {
     contacts: persistReducer(contactsPersistConfig, contactsReducer),
   },
-
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });

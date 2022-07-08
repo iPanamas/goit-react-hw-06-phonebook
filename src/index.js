@@ -12,7 +12,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// App
 import App from 'components/App';
+
 // Styles
 import './index.css';
 

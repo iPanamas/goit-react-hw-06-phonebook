@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Redux-actions
-import actions from 'redux/contact/contactActions';
+// Redux-slice
+import { addContact } from 'redux/contact/contactSlice';
 
 // Styles
 import s from './Contact.module.css';
@@ -17,8 +17,6 @@ import s from './Contact.module.css';
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const { addContact } = actions;
 
   const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();

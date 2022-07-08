@@ -1,8 +1,8 @@
 // Hooks react-redux
 import { useSelector, useDispatch } from 'react-redux';
 
-// Redux-actions
-import actions from 'redux/contact/contactActions';
+// Redux-slice
+import { deleteContact } from 'redux/contact/contactSlice';
 
 // Styles
 import s from './Contact.module.css';
@@ -10,16 +10,14 @@ import s from './Contact.module.css';
 const ContactList = () => {
   const dispatch = useDispatch();
 
-  const { deleteContact } = actions;
-
   const contacts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.contacts.filter);
 
-  const normalizedFiltered = filter.toLowerCase();
+  const filterTolowerCase = filter.toLowerCase();
 
   const filteredContacts = () => {
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFiltered)
+      contact.name.toLowerCase().includes(filterTolowerCase)
     );
   };
 
